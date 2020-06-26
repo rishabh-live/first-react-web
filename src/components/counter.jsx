@@ -4,14 +4,22 @@ class Counter extends Component {
     state = {
         count: 0
     };
+    noStyles = {
+        fontSize: 20,
+        fontWeight: 'bold',
+    };
     render() {     
 
         return (
             <React.Fragment>
-                <span className="badge badge-primary">{this.formatCount()}</span>
+                <span style = {this.noStyles} className={this.formatBadge()}>{this.formatCount()}</span>
                 <button className="badge">Increment</button>
             </React.Fragment>
         );
+    }
+
+    formatBadge(){
+        return this.state.count === 0 ? "badge badge-warning m-3" : "badge badge-primary m3";
     }
 
     formatCount(){
