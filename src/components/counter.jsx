@@ -8,18 +8,27 @@ class Counter extends Component {
         fontSize: 20,
         fontWeight: 'bold',
     };
+
+
+
+
     render() {     
 
         return (
             <React.Fragment>
                 <span style = {this.noStyles} className={this.formatBadge()}>{this.formatCount()}</span>
-                <button className="badge">Increment</button>
+                <button className="badge btn-secondary btn-sm" onClick = {this.handleIncrement}>Increment</button>
             </React.Fragment>
         );
     }
 
+
+    handleIncrement = () =>{
+        this.setState({ count : this.state.count + 1 });
+    }
+
     formatBadge(){
-        return this.state.count === 0 ? "badge badge-warning m-3" : "badge badge-primary m3";
+        return this.state.count === 0 ? "badge badge-warning m-3" : "badge badge-primary m-3";
     }
 
     formatCount(){
